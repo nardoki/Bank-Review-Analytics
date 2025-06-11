@@ -54,3 +54,19 @@ df['themes'] = df['cleaned_review'].apply(assign_theme)
 # ======= 7. Save Final Output =======
 df.to_csv("reviews_with_sentiment_and_themes.csv", index=False)
 print("✅ Analysis complete. Output saved to 'reviews_with_sentiment_and_themes.csv'")
+
+# Select and rename the columns you want in the final CSV
+final_df = df[[
+    'review',               # Original review text
+    'rating',               # If you have it; add this if your df has a rating column
+    'sentiment_label',      # Sentiment label: POSITIVE/NEGATIVE
+    'sentiment_score',      # Sentiment confidence score
+    'themes'                # Assigned theme(s)
+]].copy()
+
+# If 'rating' column is missing in your df, remove it from above list
+
+# Save the clean table to CSV
+final_df.to_csv("reviews_with_sentiment_and_themes.csv", index=False)
+
+print("✅ Clean CSV saved to 'reviews_with_sentiment_and_themes.csv'")
