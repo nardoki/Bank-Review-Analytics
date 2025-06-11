@@ -51,9 +51,6 @@ def assign_theme(text):
 
 df['themes'] = df['cleaned_review'].apply(assign_theme)
 
-# ======= 7. Save Final Output =======
-df.to_csv("reviews_with_sentiment_and_themes.csv", index=False)
-print("✅ Analysis complete. Output saved to 'reviews_with_sentiment_and_themes.csv'")
 
 # Select and rename the columns you want in the final CSV
 final_df = df[[
